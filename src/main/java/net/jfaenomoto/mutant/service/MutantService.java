@@ -7,10 +7,19 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static net.jfaenomoto.mutant.service.Direction.*;
 
+/**
+ * Service that looks for mutants
+ *
+ * @author jfaenomoto
+ */
 public class MutantService {
 
-    private ExecutorService executor = Executors.newCachedThreadPool();
-
+    /**
+     * Given a DNA table, represented as an array of Strings, check if it's mutant or not
+     *
+     * @param dna dna table
+     * @return true if mutant, false otherwise
+     */
     public boolean isMutant(String[] dna) {
         if (dna == null) {
             throw new IllegalArgumentException("dna can't be null");
