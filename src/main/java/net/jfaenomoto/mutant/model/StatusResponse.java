@@ -38,7 +38,7 @@ public class StatusResponse {
         if (this.humans + this.mutants == 0) {
             return 0.0;
         }
-        return this.mutants / (this.humans + this.mutants);
+        return (double) this.mutants / (this.humans + this.mutants);
     }
 
 }

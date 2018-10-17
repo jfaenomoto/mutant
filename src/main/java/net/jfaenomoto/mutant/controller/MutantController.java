@@ -25,6 +25,9 @@ public class MutantController {
 
     @PostMapping(consumes = "application/json")
     public void checkMutant(@RequestBody DNARequest dna) throws MutantException {
+        if (dna == null) {
+            throw new IllegalArgumentException("dna can't be null");
+        }
         if (this.mutantService.isMutant(dna.getDna())) {
             throw new MutantException();
         }
