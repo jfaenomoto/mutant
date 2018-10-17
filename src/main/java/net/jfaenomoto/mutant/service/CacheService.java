@@ -16,7 +16,7 @@ public class CacheService {
     private int mutants;
 
     public void loadCache() {
-        // TODO implement and make it load data from database
+        // TODO couldn't do it on time
     }
 
     public int getHumans() {
