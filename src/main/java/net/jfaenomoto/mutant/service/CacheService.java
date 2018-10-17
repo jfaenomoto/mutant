@@ -1,4 +1,4 @@
-package net.jfaenomoto.mutant.model.exception;
+package net.jfaenomoto.mutant.service;
 
 import org.springframework.stereotype.Service;
 
@@ -15,12 +15,24 @@ public class CacheService {
 
     private int mutants;
 
+    public void loadCache() {
+        // TODO implement and make it load data from database
+    }
+
     public int getHumans() {
         return this.humans;
     }
 
+    public void addHuman() {
+        this.humans++;
+    }
+
     public int getMutants() {
         return this.mutants;
+    }
+
+    public void addMutant() {
+        this.mutants++;
     }
 
 }

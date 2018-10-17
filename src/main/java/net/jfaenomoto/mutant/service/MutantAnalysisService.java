@@ -12,7 +12,7 @@ import static net.jfaenomoto.mutant.service.Direction.*;
  * @author jfaenomoto
  */
 @Service
-public class MutantService {
+public class MutantAnalysisService {
 
     /**
      * Given a DNA table, represented as an array of Strings, check if it's mutant or not

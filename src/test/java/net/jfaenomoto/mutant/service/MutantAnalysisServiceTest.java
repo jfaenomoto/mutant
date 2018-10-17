@@ -6,9 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class MutantServiceTest {
+public class MutantAnalysisServiceTest {
 
-    private MutantService mutantService;
+    private MutantAnalysisService mutantAnalysisService;
 
     @Test
     public void isMutantHorizontal() {
@@ -19,7 +19,7 @@ public class MutantServiceTest {
                 "GGGG"
         };
 
-        assertTrue(this.mutantService.isMutant(dna));
+        assertTrue(this.mutantAnalysisService.isMutant(dna));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class MutantServiceTest {
                 "TTAA"
         };
 
-        assertTrue(this.mutantService.isMutant(dna));
+        assertTrue(this.mutantAnalysisService.isMutant(dna));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class MutantServiceTest {
                 "CTAG"
         };
 
-        assertTrue(this.mutantService.isMutant(dna));
+        assertTrue(this.mutantAnalysisService.isMutant(dna));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class MutantServiceTest {
                 "CCAG"
         };
 
-        assertTrue(this.mutantService.isMutant(dna));
+        assertTrue(this.mutantAnalysisService.isMutant(dna));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class MutantServiceTest {
                 "TCACTG"
         };
 
-        assertFalse(this.mutantService.isMutant(dna));
+        assertFalse(this.mutantAnalysisService.isMutant(dna));
     }
 
     @Test
@@ -80,12 +80,12 @@ public class MutantServiceTest {
                 "GGT"
         };
 
-        assertFalse(this.mutantService.isMutant(dna));
+        assertFalse(this.mutantAnalysisService.isMutant(dna));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void throwExceptionIfDNAIsNullOnMutantCheck() {
-        this.mutantService.isMutant(null);
+        this.mutantAnalysisService.isMutant(null);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -96,11 +96,11 @@ public class MutantServiceTest {
                 "TTATTT"
         };
 
-        this.mutantService.isMutant(dna);
+        this.mutantAnalysisService.isMutant(dna);
     }
 
     @Before
     public void setup() {
-        this.mutantService = new MutantService();
+        this.mutantAnalysisService = new MutantAnalysisService();
     }
 }

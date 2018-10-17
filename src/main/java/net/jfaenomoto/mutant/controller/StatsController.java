@@ -1,7 +1,7 @@
 package net.jfaenomoto.mutant.controller;
 
 import net.jfaenomoto.mutant.model.StatusResponse;
-import net.jfaenomoto.mutant.model.exception.CacheService;
+import net.jfaenomoto.mutant.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
