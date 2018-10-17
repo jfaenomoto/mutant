@@ -1,7 +1,6 @@
 package net.jfaenomoto.mutant.service;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import org.springframework.stereotype.Service;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
@@ -12,6 +11,7 @@ import static net.jfaenomoto.mutant.service.Direction.*;
  *
  * @author jfaenomoto
  */
+@Service
 public class MutantService {
 
     /**
