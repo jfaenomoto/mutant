@@ -1,13 +1,19 @@
 package net.jfaenomoto.mutant.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.beans.factory.annotation.Value;
 
 public class StatusResponse {
 
     private int mutants;
 
     private int humans;
+
+    public static StatusResponse response(int mutants, int humans) {
+        StatusResponse response = new StatusResponse();
+        response.mutants = mutants;
+        response.humans = humans;
+        return response;
+    }
 
     @JsonProperty("count_mutant_dna")
     public int getMutants() {
