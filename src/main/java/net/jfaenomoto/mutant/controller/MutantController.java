@@ -1,6 +1,7 @@
 package net.jfaenomoto.mutant.controller;
 
 import net.jfaenomoto.mutant.model.DNARequest;
+import net.jfaenomoto.mutant.model.exception.MutantException;
 import net.jfaenomoto.mutant.service.MutantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
