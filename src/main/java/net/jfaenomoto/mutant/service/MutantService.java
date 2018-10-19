@@ -1,7 +1,6 @@
 package net.jfaenomoto.mutant.service;
 
 import net.jfaenomoto.mutant.domain.MappedDNA;
-import net.jfaenomoto.mutant.repository.DNARepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,29 +8,29 @@ import org.springframework.stereotype.Service;
 public class MutantService {
 
     private MutantAnalysisService mutantAnalysisService;
-    private DNARepository dnaRepository;
+    private DNAService dnaService;
     private CacheService cacheService;
 
     @Autowired
     public MutantService(MutantAnalysisService mutantAnalysisService,
-                         DNARepository dnaRepository,
+                         DNAService dnaService,
                          CacheService cacheService) {
         if (mutantAnalysisService == null) {
             throw new IllegalArgumentException("mutantAnalysisService can't be null");
         }
-        if (dnaRepository == null) {
-            throw new IllegalArgumentException("dnaRepository can't be null");
+        if (dnaService == null) {
+            throw new IllegalArgumentException("dnaService can't be null");
         }
         if (cacheService == null) {
             throw new IllegalArgumentException("cacheService can't be null");
         }
         this.mutantAnalysisService = mutantAnalysisService;
-        this.dnaRepository = dnaRepository;
+        this.dnaService = dnaService;
         this.cacheService = cacheService;
     }
 
     public boolean isMutant(String[] dna) {
-        MappedDNA mappedDNA = this.dnaRepository.findBy(dna);
+        MappedDNA mappedDNA = this.dnaService.findBy(dna);
         if (mappedDNA != null) {
             return mappedDNA.isMutant();
         }
@@ -41,7 +40,7 @@ public class MutantService {
         } else {
             this.cacheService.addHuman();
         }
-        this.dnaRepository.save(dna, isMutant);
+        this.dnaService.save(dna, isMutant);
         return isMutant;
     }
 
