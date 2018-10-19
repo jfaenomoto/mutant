@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StatusResponse {
 
-    private int mutants;
+    private long mutants;
 
-    private int humans;
+    private long humans;
 
-    public static StatusResponse response(int mutants, int humans) {
+    public static StatusResponse response(long mutants, long humans) {
         StatusResponse response = new StatusResponse();
         response.mutants = mutants;
         response.humans = humans;
@@ -16,7 +16,7 @@ public class StatusResponse {
     }
 
     @JsonProperty("count_mutant_dna")
-    public int getMutants() {
+    public long getMutants() {
         return mutants;
     }
 
@@ -25,7 +25,7 @@ public class StatusResponse {
     }
 
     @JsonProperty("count_human_dna")
-    public int getHumans() {
+    public long getHumans() {
         return humans;
     }
 

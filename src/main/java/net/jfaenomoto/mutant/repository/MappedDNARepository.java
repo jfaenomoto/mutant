@@ -9,4 +9,6 @@ public interface MappedDNARepository extends CrudRepository<MappedDNA, Long> {
 
     MappedDNA findByHash(String hash);
 
+    Long countByIsMutant(boolean isMutant);
+
 }

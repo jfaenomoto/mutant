@@ -1,6 +1,10 @@
 package net.jfaenomoto.mutant.service;
 
+import net.jfaenomoto.mutant.repository.MappedDNARepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 
 /**
  * This service acts as a cache for processed data. Note: it's implemented as a singleton service. For clustered
@@ -11,15 +15,27 @@ import org.springframework.stereotype.Service;
 @Service
 public class CacheService {
 
-    private int humans;
+    private MappedDNARepository mappedDNARepository;
 
-    private int mutants;
+    private long humans;
 
-    public void loadCache() {
-        // TODO couldn't do it on time
+    private long mutants;
+
+    @Autowired
+    public CacheService(MappedDNARepository mappedDNARepository) {
+        if (mappedDNARepository == null) {
+            throw new IllegalArgumentException("mappedDNARepository can't be null");
+        }
+        this.mappedDNARepository = mappedDNARepository;
     }
 
-    public int getHumans() {
+    @PostConstruct
+    public void loadCache() {
+        this.humans = this.mappedDNARepository.countByIsMutant(false);
+        this.mutants = this.mappedDNARepository.countByIsMutant(true);
+    }
+
+    public long getHumans() {
         return this.humans;
     }
 
@@ -27,7 +43,7 @@ public class CacheService {
         this.humans++;
     }
 
-    public int getMutants() {
+    public long getMutants() {
         return this.mutants;
     }
 

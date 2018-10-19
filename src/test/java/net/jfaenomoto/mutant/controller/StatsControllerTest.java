@@ -17,13 +17,13 @@ public class StatsControllerTest {
 
     @Test
     public void getStats() {
-        when(this.cacheService.getHumans()).thenReturn(56);
-        when(this.cacheService.getMutants()).thenReturn(32);
+        when(this.cacheService.getHumans()).thenReturn(56L);
+        when(this.cacheService.getMutants()).thenReturn(32L);
 
         StatusResponse stats = this.controller.getStats();
 
-        assertEquals(56, stats.getHumans());
-        assertEquals(32, stats.getMutants());
+        assertEquals(56L, stats.getHumans());
+        assertEquals(32L, stats.getMutants());
     }
 
     @Test(expected = IllegalArgumentException.class)
